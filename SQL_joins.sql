@@ -1,7 +1,7 @@
 USE bestbuy;
 /* joins: select all the computers from the products table:
 using the products table and the categories table, return the product name and the category name */
-SELECT p.Name, c.Name
+SELECT p.Name AS ProductName, c.Name AS Category
 FROM products AS p
 INNER JOIN categories AS c 
 ON p.CategoryID = c.CategoryID
@@ -41,7 +41,7 @@ HAVING c.Name = "Appliances" OR c.Name = "Games" ;
 /* joins: find Product name, reviewer name, rating, and comment on the Visio TV. (only return for the lowest rating!) */
 SELECT p.name, r.Reviewer, r.Rating, r.Comment
 FROM reviews AS r 
-INNER JOIN products AS p 
+INNER JOIN products AS p  
 ON p.ProductID = r.ProductID
 WHERE p.name = "Visio TV"
 ORDER BY r.Rating
@@ -55,7 +55,7 @@ SELECT employees.EmployeeID, CONCAT(employees.FirstName, " ", employees.LastName
 FROM sales
 INNER JOIN products
 ON sales.ProductID = products.ProductID
-INNER JOIN employees
+INNER JOIN employees-- 
 ON sales.EmployeeID = employees.EmployeeID
 GROUP BY employees.EmployeeID
 ORDER BY employees.LastName;
